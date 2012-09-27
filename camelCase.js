@@ -2,6 +2,7 @@
 
 
 var translate = {
+	'Space': ' ',
 	'Var': ' var ',
 	'For': ' for( ',
 	'While': ' while( ',
@@ -61,8 +62,11 @@ var translate = {
 
 	'Undefined': ' undefined ',
 	'Null': ' null ',
+	'DivideBy': ' / ',
 	'DividedBy': ' / ',
+	'TimesBy': ' * ',
 	'Times': ' * ',
+	'MultiplyBy': ' * ',
 	'MultipliedBy': ' * ',
 	'Plus': ' + ',
 	'Minus': ' - ',
@@ -126,7 +130,7 @@ while( (m = source.match(/[A-Z][a-z0-9]*/)) ) {
 	var reserved = matchReserved();
 	if(reserved !== undefined) {
 		if(variable.length) {
-			code += ' '+variable.substr(0,1).toLowerCase()+variable.substr(1)+' ';
+			code += variable.substr(0,1).toLowerCase()+variable.substr(1);
 			variable = '';
 		}
 
