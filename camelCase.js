@@ -110,9 +110,14 @@ var translate = {
 
 var code = '';
 
-var source = require('fs').readFileSync('/dev/stdin', 'UTF-8');
-source = source.replace(/[\n\s]/g,'');
-source = source.substr(0,1).toUpperCase() + source.substr(1);
+var source = require('fs').readFileSync(process.argv[2] || '/dev/stdin', 'UTF-8');
+var sourceLines = source.split(/[\n]/g);
+source = '';
+for(var line = 0; line < sourceLines.length; line++) {
+	sourceLines[line] = sourceLines[line].replace(/[\s\n\r]/g, '');
+	if(sourceLines[line].substr(0,2) === '//') { continue; }
+	source += sourceLines[line].substr(0,1).toUpperCase() + sourceLines[line].substr(1);
+}
 
 function matchReserved() {
 	for(var r in translate) {
