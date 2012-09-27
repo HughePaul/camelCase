@@ -3,6 +3,8 @@
 
 var translate = {
 	'Space': ' ',
+	'Dash': '-',
+	'UtfEight': '"UTF-8"',
 	'Var': ' var ',
 	'For': ' for( ',
 	'While': ' while( ',
